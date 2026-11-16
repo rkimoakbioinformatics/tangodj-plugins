@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orchestra Reminder</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="panel.js"></script>
+</head>
+<body class="rot:m-0 rot:bg-stone-50 rot:dark:bg-zinc-950">
+<main id="rotation" data-theme="dark" class="rot:box-border rot:min-h-full rot:space-y-6 rot:bg-stone-50 rot:p-4 rot:font-sans rot:text-sm rot:leading-normal rot:text-stone-900 rot:dark:bg-zinc-950 rot:dark:text-zinc-100">
+<header class="rot:flex rot:flex-wrap rot:items-start rot:justify-between rot:gap-3">
+<div><h1 class="rot:m-0 rot:text-xl rot:font-semibold">Orchestra Reminder</h1><p id="playlist" class="rot:mt-1 rot:mb-0 rot:text-stone-500 rot:dark:text-zinc-400">Connecting to TangoDJ…</p></div>
+</header>
+<p id="error" role="alert" hidden class="rot:rounded-lg rot:border rot:border-solid rot:border-red-400/40 rot:bg-red-500/10 rot:p-3 rot:text-red-700 rot:dark:text-red-300"></p>
+<section aria-labelledby="rotation-title">
+<div class="rot:mb-2 rot:flex rot:items-center rot:justify-between rot:gap-2"><h2 id="rotation-title" class="rot:m-0 rot:text-base rot:font-semibold">Orchestras to play</h2><span id="due-count" class="rot:text-xs rot:text-stone-500 rot:dark:text-zinc-400"></span></div>
+<p id="rotation-empty" class="rot:text-stone-500 rot:dark:text-zinc-400">Add orchestras below to start your reminders.</p>
+<div id="table-container" hidden class="rot:overflow-x-auto rot:rounded-xl rot:border rot:border-solid rot:border-stone-200 rot:dark:border-zinc-700">
+<table class="rot:w-full rot:border-collapse rot:text-left rot:text-sm">
+<thead class="rot:bg-stone-100 rot:text-xs rot:text-stone-600 rot:dark:bg-zinc-900 rot:dark:text-zinc-400"><tr><th scope="col" class="rot:p-3">Orchestra</th><th scope="col" class="rot:p-3">Last played</th><th scope="col" class="rot:p-3">Threshold</th><th scope="col" class="rot:p-3">Reminder</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="history-title">
+<div class="rot:mb-2 rot:flex rot:items-center rot:justify-between rot:gap-2"><h2 id="history-title" class="rot:m-0 rot:text-base rot:font-semibold">Tandas so far</h2><span id="history-count" class="rot:text-xs rot:text-stone-500 rot:dark:text-zinc-400"></span></div>
+<p id="history-empty" class="rot:text-stone-500 rot:dark:text-zinc-400">Waiting for playback information.</p>
+<ol id="history" class="rot:m-0 rot:max-h-64 rot:list-none rot:space-y-2 rot:overflow-y-auto rot:p-0"></ol>
+</section>
+<section id="settings" aria-labelledby="settings-title">
+<div class="rot:mb-2 rot:flex rot:items-center rot:justify-between rot:gap-2"><h2 id="settings-title" class="rot:m-0 rot:text-base rot:font-semibold">Orchestra settings</h2><span id="rule-count" class="rot:text-xs rot:text-stone-500 rot:dark:text-zinc-400"></span></div>
+<p class="rot:text-xs rot:text-stone-500 rot:dark:text-zinc-400">Enter a full or partial orchestra name. Case-insensitive match will be done.</p>
+<form id="rules-form" novalidate>
+<div id="cards" class="rot:grid rot:grid-cols-1 rot:gap-3 rot:sm:grid-cols-2"></div>
+<p id="settings-error" role="alert" hidden class="rot:text-red-700 rot:dark:text-red-300"></p>
+<div class="rot:mt-3 rot:flex rot:flex-wrap rot:items-center rot:gap-2">
+<button id="add" type="button" class="rot:cursor-pointer rot:rounded-lg rot:border rot:border-solid rot:border-stone-300 rot:bg-transparent rot:px-3 rot:py-2 rot:font-sans rot:text-sm rot:text-inherit rot:hover:bg-stone-100 rot:disabled:opacity-50 rot:dark:border-zinc-600 rot:dark:hover:bg-zinc-800">+ Add orchestra</button>
+<button type="submit" class="rot:cursor-pointer rot:rounded-lg rot:border-0 rot:bg-zinc-700 rot:px-3 rot:py-2 rot:font-sans rot:text-sm rot:font-semibold rot:text-white rot:hover:bg-zinc-800 rot:dark:bg-zinc-200 rot:dark:text-zinc-900 rot:dark:hover:bg-zinc-300">Save settings</button>
+<span id="save-status" role="status" class="rot:text-xs rot:text-stone-500 rot:dark:text-zinc-400"></span>
+</div>
+</form>
+</section>
+</main>
+</body>
+</html>
