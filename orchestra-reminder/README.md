@@ -32,7 +32,7 @@ To remove an orchestra, hover over its card and click the trash icon at the top 
 - **Threshold** is the number of minutes you set for that orchestra.
 - **Due** is highlighted when the threshold is reached or the orchestra has not been played. Due orchestras appear first.
 - **Recently played** means the threshold has not been reached yet.
-- **Tandas so far** lists the recorded tandas, their orchestras and singers, and when they started. Hover over a time to see its full date and time.
+- **Tandas so far** lists the recorded tandas, their orchestras and singers, and when they started. The list automatically scrolls to each newly played tanda. Hover over a time to see its full date and time.
 
 Reminders continue counting during pauses and after playback stops. The plugin reminds you; it does not change your playlist or start playback.
 

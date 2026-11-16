@@ -80,7 +80,6 @@ function addCard(rule = { orchestra: "", minutes: 60 }) {
 }
 
 function renderRows() {
-    byId("rule-count").textContent = `(${settings.rules.length})`;
     byId("table-container").hidden = !current || settings.rules.length === 0;
     byId("rotation-empty").hidden = current !== null && settings.rules.length > 0;
     byId("rotation-empty").textContent = current ? "Add orchestras below." : "Waiting for current playback information.";
@@ -101,10 +100,11 @@ function renderRows() {
 
 function render(snapshot) {
     const next = observePlayback(history, snapshot, Date.now());
+    const newTanda = next.entries.length > 0 && next.entries.at(-1) !== history.entries.at(-1);
     if (next !== history) { history = next; historyDirty = true; }
     current = snapshot;
     byId("playlist").textContent = snapshot.playlist ? `${snapshot.playlist.name} · ${snapshot.playback.status === "paused" ? "Paused" : "Playing"}` : history.playlistName ? `${history.playlistName} · Playback stopped` : "No playlist is playing.";
-    renderHistory();
+    renderHistory(newTanda);
     renderRows();
     if (historyDirty) {
         localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
@@ -112,7 +112,7 @@ function render(snapshot) {
     }
 }
 
-function renderHistory() {
+function renderHistory(followNewTanda = false) {
     byId("history-empty").hidden = history.entries.length > 0;
     byId("history-empty").textContent = "No tanda has been played yet.";
     byId("history-count").textContent = `${history.entries.length} tandas`;
@@ -137,6 +137,10 @@ function renderHistory() {
             li.append(description, position);
             return li;
         }));
+    }
+    if (followNewTanda) {
+        const list = byId("history");
+        list.scrollTop = list.scrollHeight;
     }
 }
 
