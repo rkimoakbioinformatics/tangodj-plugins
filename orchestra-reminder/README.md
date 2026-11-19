@@ -4,10 +4,12 @@ Orchestra Reminder helps you keep track of the orchestras you have played and re
 
 ## Install
 
+In TangoDJ, open **Settings → Plugins**, choose **Install** beside **Orchestra Reminder**, then **Enable**. For a manual installation:
+
 1. Download the plugin files and extract them if needed.
 2. Open your TangoDJ data folder, then open or create its `plugins` folder.
-3. Copy the entire `orchestra-reminder` folder into `plugins`. The file `index.html` should be directly inside `plugins/orchestra-reminder/`.
-4. In TangoDJ, open **Settings → Plugin panels**, click **Refresh**, and enable **orchestra-reminder**.
+3. Copy the entire `orchestra-reminder` folder into `plugins`. The files `tangodj-plugin.json` and `index.html` should be directly inside `plugins/orchestra-reminder/`.
+4. In TangoDJ, open **Settings → Plugins** and enable **Orchestra Reminder**.
 
 The default TangoDJ data folder is:
 
@@ -42,18 +44,20 @@ Keep the plugin enabled while playing a playlist on the main player. It records 
 
 Songs within one tanda and pausing/resuming keep the original start time. Replaying a tanda after moving to another one adds a new history entry. Cortinas are excluded. Switching the playing playlist starts a new history; browsing other lists or using the preview player does not.
 
-Your saved orchestra settings and history are remembered between sessions. Keep the installed folder named `orchestra-reminder` when updating.
+TangoDJ keeps your saved orchestra settings and history between sessions and when you update the existing installation.
 
 Use the **…** button in the panel header to dock, float, maximize, or restore it. **Hide** keeps it running; **Disable** stops it.
 
 ## Update
 
+For a repository installation, choose **Check for updates**, then **Update** in **Settings → Plugins**. For a manual installation:
+
 1. Quit TangoDJ.
 2. Replace the files inside the existing `plugins/orchestra-reminder/` folder with the downloaded files.
-3. Reopen TangoDJ. If necessary, enable the plugin in **Settings → Plugin panels**.
+3. Reopen TangoDJ. If necessary, enable the plugin in **Settings → Plugins**.
 
 ## Troubleshooting
 
-- **The plugin is missing from the list:** check that `index.html` is directly inside `plugins/orchestra-reminder/`, then click **Refresh** in Plugin panels.
+- **The plugin is missing from the list:** check that both `tangodj-plugin.json` and `index.html` are directly inside `plugins/orchestra-reminder/`, then reopen **Settings → Plugins**.
 - **No tandas appear:** play a playlist on the main player and make sure the plugin is enabled. Earlier tandas are not added automatically.
 - **An error appears:** read the message in the panel and check TangoDJ’s Logs for more details.

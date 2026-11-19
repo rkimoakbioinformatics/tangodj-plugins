@@ -10,4 +10,4 @@ Ready-to-use plugins for TangoDJ.
 
 Download the files, extract them if needed, and follow the installation instructions in the plugin’s README. Copy the individual plugin folder into TangoDJ’s `plugins` folder.
 
-Manage installed plugins in **Settings → Plugin panels** in TangoDJ.
+For installation and updates inside TangoDJ, open **Settings → Plugins**, choose **Check for updates**, then **Install** or **Update** beside the plugin. Choose **Enable** to start it.
